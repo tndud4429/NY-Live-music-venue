@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<script type="text/javascript" src="{{ url_for('static', filename = 'create.js') }}"></script>
+	<div id="create" class="row"></div>
+	<script>
+		var venues = {{venues|tojson}}
+	</script>
+
+	<div class="row">
+		<div class="col-2">name: <span id="nameError" class="col-10"></span></div>
+		<div class="col-12">
+		<input type="textbox" id="name" class="inputbox"></div>
+		<div class="col-2">link of the image: <span id="imageError" class="col-10"></span></div>
+		<div class="col-12">
+		<input type="textbox" id="image" class="inputbox"></div>
+		<div class="col-2">description: <span id="descriptionError" class="col-10"></span></div>
+		<div class="col-12">
+		<input type="textbox" id="description" class="inputbox"></div>
+		<div class="col-2">rating: <span id="ratingError" class="col-10"></span></div>
+		<div class="col-12">
+		<input type="textbox" id="rating" class="inputbox"></div>
+
+		<button id="create-venue">Submit</button>
+	</div>
+{% endblock %}

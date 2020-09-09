@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<!-- JQuery-->
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+	<!--Bootstrap-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+	<script type="text/javascript" src="{{ url_for('static', filename = 'edit.js') }}"></script>
+
+	<script>
+	var venues = {{venues|tojson}}
+  	var id = {{id|tojson}}
+  	var venue = {{venue|tojson}}
+  	</script>
+
+	<style>
+	#edit{
+		padding: 20px;
+		background-color: GhostWhite;
+	}
+	#submit{
+    border-radius: 8px;
+    padding: 8px 10px 8px 10px;
+    background-color: #008CBA;
+    font-size: 12px;
+    color: white;
+		margin: 20px;
+	}
+	#discardbutton{
+		border-radius: 8px;
+    padding: 8px 10px 8px 10px;
+    font-size: 12px;
+    background-color: gold;
+		margin: 20px;
+	}
+	#username{
+		margin-top: 20px;
+	}
+	#review{
+		margin-top: 20px;
+	}
+	.image{
+  	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	width: 50%;
+		padding: 20px 0px 0px 0px;
+
+	}
+	.name{
+		text-align: center;
+		font-size: 28px;
+	}
+	.rating{
+		text-align: center;
+	}
+	.description{
+		padding: 20px;
+	}
+	.review{
+		padding-bottom: 20px;
+	}
+	.button{
+		border-radius: 5px;
+    		font-size: 12px;
+    		background-color: gold;
+		width: auto;
+		height: 40px;
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+  		align-items: center;
+  		justify-content: center;
+	}
+	.error{
+		color: red;
+	}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+	<div id="edit" class="row">
+	</div>
+
+	<div class="list">
+	</div>
+	<div class="col-12">
+	<input type="textbox" id="username" class="inputbox col-12" placeholder="User name"></div>
+	<div id="userError" class="col-12"></div>
+	<div class="col-12">
+	<input type="textbox" id="review" class="inputbox col-12" placeholder="Review"></div>
+	<div id="reviewError" class="col-12"></div>
+	<button id="discardbutton">Discard changes</button>
+	<button id="submit add-review">Submit</button>
+
+</body>
+</html>

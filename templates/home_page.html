@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<script>
+		var venues = {{venues|tojson}}
+	</script>
+	<div id="home">
+	</div>
+
+	<div id="home_list">
+	</div>
+{% endblock %}

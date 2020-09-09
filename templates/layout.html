@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Navbar -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<!-- JQuery-->
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+	<script type="text/javascript" src="{{ url_for('static', filename = 'home.js') }}"></script>
+
+
+	<style>
+	#submit{
+    		padding: 8px 10px 8px 10px;
+    		background-color: #008CBA;
+    		font-size: 12px;
+    		color: white;
+		border: 2px solid white;
+	}
+	#view{
+		padding: 20px;
+		background-color: GhostWhite;
+		text-align: center;
+		font-size: 32px;
+	}
+	#create{
+		padding: 20px;
+		background-color: GhostWhite;
+		text-align: center;
+		font-size: 18px;
+	}
+	#create-venue{
+   		border-radius: 8px;
+    		padding: 8px 10px 8px 10px;
+    		background-color: #008CBA;
+    		font-size: 12px;
+    		color: white;
+		margin: 20px;
+	}
+	#searchbox{
+		margin: 0px 15px 0px 15px;
+		width: 350px;
+	}
+	#edit{
+		padding: 20px;
+		background-color: GhostWhite;
+	}
+	#discardbutton{
+		border-radius: 8px;
+    		padding: 8px 10px 8px 10px;
+    		font-size: 12px;
+    		background-color: gold;
+		margin: 20px;
+	}
+	#username{
+		margin-top: 20px;
+	}
+	#review{
+		margin-top: 20px;
+	}
+	#summary{
+		margin: 20px;
+	}
+	.highlight{
+		color: orange;
+		font-weight: bold;
+	}
+	.undo{
+		margin-bottom: 20px;
+	}
+	.edit_rating{
+		margin-left: 20px;
+	}
+	.newlist{
+		margin: 40px;
+		padding: 20px;
+		border-style: groove;
+		border-radius: 10px;
+	}
+	.image{
+		display: block;
+  		margin-left: auto;
+  		margin-right: auto;
+  		width: 50%;
+			padding: 20px 0px 30px 0px;
+
+	}
+	.view-image{
+  		display: block;
+  		margin-left: auto;
+  		margin-right: auto;
+  		width: 50%;
+		padding: 20px 0px 0px 0px;
+
+	}
+	.view-name{
+		text-align: center;
+		font-size: 28px;
+		margin: auto;
+		padding: 40px 0px 40px 0px;
+	}
+	.search-name{
+		text-align: center;
+	}
+	.name{
+		text-align: center;
+		font-size: 32px;
+		padding-top: 20px;
+	}
+	.ratingbox{
+		margin-left: auto;
+		margin-right: auto;
+		display: flex inline-block;
+		align-items: center;
+
+	}
+	.inline{
+		display: flex inline-block;
+	}
+	.cancelButton{
+		border-radius: 5px;
+    		font-size: 12px;
+    		background-color: red;
+		width: auto;
+		height: auto;
+		margin-left: auto;
+		margin-right: auto;
+		display: flex inline-block;
+  		align-items: center;
+  		justify-content: center;
+  		float: right;
+	}
+	.submitButton{
+		border-radius: 5px;
+    		font-size: 12px;
+    		background-color: #008CBA;
+    		color: white;
+		width: auto;
+		height: auto;
+		margin-left: auto;
+		margin-right: auto;
+		display: flex inline-block;
+  		align-items: center;
+  		justify-content: center;
+  		float: right;
+	}
+	.error{
+		color: red;
+		padding-left: 80px;
+	}
+
+	.rating{
+		text-align: center;
+		padding: 50px 0px 50px 0px;
+		display: flex inline-block;
+	}
+	.upperrating{
+		text-align: center;
+		padding: 50px 0px 0px 0px;
+		display: flex inline-block;
+	}
+	.lowerrating{
+		text-align: center;
+		padding: 0px 0px 50px 0px;
+		display: flex inline-block;
+	}
+	.description{
+		padding-bottom: 20px;
+	}
+	.review{
+		padding-bottom: 20px;
+	}
+	.margin{
+		margin-bottom: 20px;
+	}
+	.button{
+		border-radius: 5px;
+    		font-size: 12px;
+    		background-color: gold;
+		width: auto;
+		height: auto;
+		margin-left: auto;
+		margin-right: auto;
+		display: flex inline-block;
+  		align-items: center;
+  		justify-content: center;
+	}
+	.inputbox{
+		margin: 0px 15px 0px 15px;
+		width: 550px;
+	}
+	.review{
+		margin-top: 20px;
+	}
+	.input-group-addon{
+		padding: 0px;
+	}
+
+
+	</style>
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse navbar-toggleable-md">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<a class="navbar-brand" href="../"> NY Live Music Venue </a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="../">Home</a></li>
+				<li><a href="../create"> Create </a></li>
+			</ul>
+			<span class="form-inline my-2 my-lg-0">
+				<div class="col-lg-2 col-lg-offset-2 form-group input-group">
+				<input id="searchbox" class="form-control mr-sm-2 form-group" type="search" placeholder="Search" aria-label="Search">
+				<span class="input-group-addon">
+				<button id="submit" class="btn btn-outline-success my-2 my-sm-0" type="submit"> Go </button></span>
+				<div id="err search-err"></div>
+			</div>
+			</span>
+		<div>
+	</nav>
+	<div class="container">
+		{% block content %}
+
+		{% endblock %}
+	</div>
+
+</body>
+</html>
